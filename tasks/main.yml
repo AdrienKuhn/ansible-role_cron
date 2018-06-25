@@ -1,0 +1,19 @@
+---
+# tasks file for cron
+
+- name: Ensure cron jobs are configured
+  become: yes
+  cron:
+    name={{ item.name }}
+    hour={{ item.hour | default('*') }}
+    minute={{ item.minute | default('*') }}
+    weekday={{ item.weekday | default('*') }}
+    day={{ item.day | default('*') }}
+    month={{ item.month | default('*') }}
+    user={{ item.user }}
+    job={{ item.job }}
+    cron_file={{ item.name }}
+    state={{ item.state | default('present') }}
+  with_items: "{{ cronjobs | default([]) }}"
+  when: cronjobs is defined
+  tags: cron

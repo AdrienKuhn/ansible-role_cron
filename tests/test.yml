@@ -1,0 +1,7 @@
+---
+- hosts: all
+  vars:
+    cronjobs:
+      - { name: 'echo', hour: 0, minute: 0, user: 'root', job: 'echo "cron job" > /dev/null' }
+  roles:
+    - ansible-role_cron
