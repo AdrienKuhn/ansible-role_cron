@@ -27,22 +27,22 @@ cronjobs:
     name: 'echo', 
     hour: 0, 
     minute: 0,
-    weekday=*
-    day=*
-    month=* 
-    user: 'root', 
+    weekday: '*',
+    day: '*',
+    month: '*', 
+    user: root, 
     job: 'echo "cron job" > /dev/null' 
   }
   - { 
     name: 'job to remove', 
     hour: 0, 
     minute: 0,
-    weekday=*
-    day=*
-    month=* 
-    user: 'root', 
+    weekday: '*',
+    day: '*',
+    month: '*', 
+    user: root, 
     job: 'echo "cron job to remove" > /dev/null' 
-    state=absent
+    state: absent
   }
 ```
 
